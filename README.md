@@ -1,4 +1,4 @@
-# The application after running 7
+# The application after running
 ![image](https://github.com/WeboPaul/CurrencyConverter/assets/112899493/c90f19de-4dc4-47d0-813a-8e22abe31128)
 
 
