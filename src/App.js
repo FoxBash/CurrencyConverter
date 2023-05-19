@@ -11,32 +11,26 @@ function App() {
 
 
 const [options, setOptions] = useState([])
-const [input , setInput] = useState([])
+const [input , setInput] = useState(0)
 const [from, setFrom] = useState("usd")
 const [to, setTo] = useState("kes")
-const [output, setOutput] = useState([])
+const [output, setOutput] = useState(0)
 const [info, setInfo] = useState([])
-useEffect(() => {
-  
-}, [])
-
-
 
  useEffect(() => {
   Axios.get(
     `https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${from}.json`)
   .then((res) =>{
     setInfo(res.data[from]);
-})},[from])
+   })
+ },[from])
 
-useEffect((e) => {
-  e.preventDefault();
+useEffect(() => {
   setOptions(Object.keys(info));
   convert();
 }, [info])
 
-function convert(e) {
-  e.preventDefault();
+function convert() {
   var rate = info[to]
   setOutput(input * rate)
 }
@@ -53,6 +47,7 @@ function convert(e) {
         onChange={(e) => setInput(e.target.value)} 
         className='px-4 py-4 font-semibold capitalize text-center border-r rounded-md mx-32 mb-10 text-orange-600 bg-black'/>
       </div>
+<div className="flex mx-10">
       <div>
         <Dropdown options={options}
         onChange={(e) => setFrom(e.value)}
@@ -67,8 +62,9 @@ function convert(e) {
         placeholder="To"
         className='capitalize bg-black  text-orange-600 font-bold'/>
       </div>
+</div>
       <div>
-        <button onClick={(e) => {convert(e) }}
+        <button onClick={() => {convert() }}
         className='py-4 px-4 my-20 border rounded-md drop-shadow-lg bg-black text-orange-700  w-80 font-bold uppercase mx-24'>Convert
         </button>
 
