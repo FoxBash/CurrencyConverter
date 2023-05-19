@@ -1,5 +1,6 @@
-# Live demo here 👇
-https://cashconvertor.netlify.app/
+# The application after running 7
+![image](https://github.com/WeboPaul/CurrencyConverter/assets/112899493/c90f19de-4dc4-47d0-813a-8e22abe31128)
+
 
 # Getting Started with Create React App
 
