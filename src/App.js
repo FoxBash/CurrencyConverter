@@ -27,7 +27,7 @@ useEffect(() => {
     `https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${from}.json`)
   .then((res) =>{
     setInfo(res.data[from]);
-})},[])
+})},[from])
 
  useEffect(() =>{
   setOptions(Object.keys(info));
@@ -42,7 +42,7 @@ function Convert(){
     <div className=''>
       <div className='bg-black text-orange-600 font-bold px-4 py-4 flex justify-between'>
         Currency Converter
-        <img src={Logo} alt='image logo' className=''/>
+        <img src={Logo} alt='logo'/>
       </div>
     <div className='max-w-lg mx-auto my-6 '>
       <div>
