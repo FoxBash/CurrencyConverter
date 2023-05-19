@@ -29,14 +29,14 @@ useEffect(() => {
     setInfo(res.data[from]);
 })},[from])
 
-useEffect((e) => {
-  e.preventDefault();
+useEffect(() => {
+  
   setOptions(Object.keys(info));
   convert();
 }, [info])
 
-function convert(e) {
-  e.preventDefault();
+function convert() {
+ 
   var rate = info[to]
   setOutput(input * rate)
 }
@@ -68,7 +68,7 @@ function convert(e) {
         className='capitalize bg-black  text-orange-600 font-bold'/>
       </div>
       <div>
-        <button onClick={(e) => {convert(e) }}
+        <button onClick={() => {convert() }}
         className='py-4 px-4 my-20 border rounded-md drop-shadow-lg bg-black text-orange-700  w-80 font-bold uppercase mx-24'>Convert
         </button>
 
