@@ -11,23 +11,19 @@ function App() {
 
 
 const [options, setOptions] = useState([])
-const [input , setInput] = useState([])
+const [input , setInput] = useState(0)
 const [from, setFrom] = useState("usd")
 const [to, setTo] = useState("kes")
-const [output, setOutput] = useState([])
+const [output, setOutput] = useState(0)
 const [info, setInfo] = useState([])
-useEffect(() => {
-  
-}, [])
-
-
 
  useEffect(() => {
   Axios.get(
     `https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${from}.json`)
   .then((res) =>{
     setInfo(res.data[from]);
-})},[from])
+   })
+ },[from])
 
 useEffect(() => {
   
@@ -53,23 +49,25 @@ function convert() {
         onChange={(e) => setInput(e.target.value)} 
         className='px-4 py-4 font-semibold capitalize text-center border-r rounded-md mx-32 mb-10 text-orange-600 bg-black'/>
       </div>
+<div className="flex mx-20">
       <div>
         <Dropdown options={options}
         onChange={(e) => setFrom(e.value)}
         value={from}
         placeholder="From"
-        className='capitalize bg-black  text-orange-600 font-bold'/>
+        className='capitalize bg-black  mx-10 text-orange-600 font-bold'/>
       </div>
       <div>
         <Dropdown options={options}
         onChange={(e) => setTo(e.value)}
         value={to}
         placeholder="To"
-        className='capitalize bg-black  text-orange-600 font-bold'/>
+        className='capitalize bg-black  mx-10 text-orange-600 font-bold'/>
       </div>
+</div>
       <div>
         <button onClick={() => {convert() }}
-        className='py-4 px-4 my-20 border rounded-md drop-shadow-lg bg-black text-orange-700  w-80 font-bold uppercase mx-24'>Convert
+        className='py-4 px-4 my-16 border rounded-md drop-shadow-lg bg-black text-orange-700  w-80 font-bold uppercase mx-24'>Convert
         </button>
 
         <p
@@ -80,7 +78,7 @@ function convert() {
       
 
     </div>
-    <div className='bg-black text-orange-600 font-bold px-4 py-4'>
+    <div className='bg-black text-orange-600 font-bold px-4 py-4 mt-24'>
         Paul Webo @2023
       </div>
     </div>
